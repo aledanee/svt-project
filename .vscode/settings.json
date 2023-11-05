@@ -2,8 +2,7 @@
     "java.project.sourcePaths": [
         "src",
         "backEnd/APIs",
-        "backEnd/DBconnectin/db.java",
-        "backEnd/functions/fun.java",
+        "backEnd/DBconnectin",
     ],
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
