@@ -60,6 +60,32 @@ public class db {
         }
     }
 
+    public String getUserById(int userId) {
+        try {
+            // Prepare a select statement to get a user by ID
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM user WHERE id = ?");
+            statement.setInt(1, userId);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String username = resultSet.getString("username");
+                String password = resultSet.getString("password");
+                String email = resultSet.getString("email");
+                String created_at = resultSet.getString("created_at");
+
+                // Build a user information string (you can format it as needed)
+                return "User ID: " + id + "\nUsername: " + username + "\nPassword: " + password + "\nEmail: " + email + "\nCreated At: " + created_at;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        // Return an empty string or an appropriate error message
+        return "User not found";
+    }
+
     public void closeConnection() {
         try {
             // Close the database connection

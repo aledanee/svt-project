@@ -10,12 +10,12 @@ public class App {
         db db = new db(url, username, password);
 
         // Insert a user
-        db.insertUser("exampleUser", "password123", "user@example.com");
+        db.insertUser("ibrahim yaseeen", "yaseeniq", "ibrahimyaseen@example.com");
 
         // Get and print all users
         db.getUsers();
-
+        //db.getUserById(1);
         // Close the database connection
-        db.closeConnection();
+        //db.closeConnection();
     }
 }
