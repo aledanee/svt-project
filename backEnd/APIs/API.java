@@ -6,19 +6,24 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
 
-public class UserAPI {
+public class API {
     public static void main(String[] args) throws Exception {
         int port = 8080; // Set your desired port number
 
         HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
-        server.createContext("/user", new UserHandler());
+        server.createContext("/user", new UserByIdHandler());
         server.setExecutor(null);
         server.start();
 
         System.out.println("Server is running on port " + port);
     }
 
-    static class UserHandler implements HttpHandler {
+
+
+
+
+    // hadler git user by id 
+    static class UserByIdHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange exchange) throws IOException {
 
@@ -58,4 +63,11 @@ public class UserAPI {
             }
         }
     }
+
+
+
+
+
+
+
 }
