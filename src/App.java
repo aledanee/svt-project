@@ -1,5 +1,6 @@
 
 public class App {
+<<<<<<< HEAD
     public static void main(String[] args) {
         // Replace with your actual database URL, username, and password
         String url = "jdbc:mysql://localhost:3306/DBblog";
@@ -17,5 +18,9 @@ public class App {
         //db.getUserById(1);
         // Close the database connection
         //db.closeConnection();
+=======
+    public static void main(String[] args) throws Exception {
+        System.out.println("ibrahim, World!");
+>>>>>>> master
     }
 }

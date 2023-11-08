@@ -18,10 +18,6 @@ public class API {
         System.out.println("Server is running on port " + port);
     }
 
-
-
-
-
     // hadler git user by id 
     static class UserByIdHandler implements HttpHandler {
         @Override
