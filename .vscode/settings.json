@@ -3,6 +3,7 @@
         "src",
         "backEnd/APIs",
         "backEnd/DBconnectin",
+        "backEnd/functions",
     ],
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
