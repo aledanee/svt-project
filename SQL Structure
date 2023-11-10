@@ -1,0 +1,65 @@
+
+............. Database Design ................
+
+    User Table:
+        Fields: user_id, username, email, password, profile_picture
+
+    BlogPost Table:
+        Fields: post_id, title, content, publication_date, author_id
+
+    Comment Table:
+        Fields: comment_id, post_id, user_id, comment_text, comment_date
+
+    Like Table:
+        Fields: like_id, post_id, user_id
+
+    UserNotification Table:
+        Fields: notification_id, user_id, notification_text, notification_date
+
+
+................ SQL Structure .................
+
+
+
+CREATE TABLE User (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    profile_picture VARCHAR(100)
+);
+
+CREATE TABLE BlogPost (
+    post_id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(100) NOT NULL,
+    content TEXT NOT NULL,
+    publication_date DATE,
+    author_id INT,
+    FOREIGN KEY (author_id) REFERENCES User(user_id)
+);
+
+CREATE TABLE Comment (
+    comment_id INT AUTO_INCREMENT PRIMARY KEY,
+    post_id INT,
+    user_id INT,
+    comment_text TEXT NOT NULL,
+    comment_date DATETIME,
+    FOREIGN KEY (post_id) REFERENCES BlogPost(post_id),
+    FOREIGN KEY (user_id) REFERENCES User(user_id)
+);
+
+CREATE TABLE Like (
+    like_id INT AUTO_INCREMENT PRIMARY KEY,
+    post_id INT,
+    user_id INT,
+    FOREIGN KEY (post_id) REFERENCES BlogPost(post_id),
+    FOREIGN KEY (user_id) REFERENCES User(user_id)
+);
+
+CREATE TABLE UserNotification (
+    notification_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    notification_text TEXT NOT NULL,
+    notification_date DATETIME,
+    FOREIGN KEY (user_id) REFERENCES User(user_id)
+);
