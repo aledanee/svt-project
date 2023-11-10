@@ -19,7 +19,7 @@
 
 ................ SQL Structure .................
 
-
+----------------- #1 database name blog -------------
 
 CREATE TABLE User (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
